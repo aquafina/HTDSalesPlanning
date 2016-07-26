@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="model.VO.AppModule">
+      <AppModuleConfig name="AppModuleLocal" ApplicationName="model.VO.AppModule" DeployPlatform="LOCAL" jbo.project="model.Model">
+         <Security AppModuleJndiName="model.VO.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConnDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModuleShared" ApplicationName="model.VO.AppModule" DeployPlatform="LOCAL" jbo.project="model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="model.VO.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConnDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule" ApplicationName="model.VO.AppModule" DeployPlatform="LOCAL" JDBCName="Conn" jbo.project="model.Model">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="model.VO.AppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

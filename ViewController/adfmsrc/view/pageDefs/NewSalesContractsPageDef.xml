@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="NewSalesContractsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+  <variableIterator id="variables"/>
+    <iterator Binds="VO_SalesPlanningHeader3" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_SalesPlanningHeader2Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="VO_SalesPlanningLines2" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_SalesPlanningLines2Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="VO_SalesPlanningLines2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_SalesPlanningLines2Query"/>
+    <searchRegion Criteria="VO_SalesPlanningHeaderCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VO_SalesPlanningHeader2Iterator"
+                  id="VOSalesPlanningHeaderCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_ProgramName" id="ProgramName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_CustPoNo" id="CustPoNo" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="PoType">
+      <AttrNames>
+        <Item Value="PoType"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_Potypemeaning" id="Potypemeaning" DTSupportsMRU="false"/>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_ShipModeL" id="ShipModeL" DTSupportsMRU="false"/>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_BookMonth" id="BookMonth" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="SalesContractNo">
+      <AttrNames>
+        <Item Value="SalesContractNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="DyeingWoNo">
+      <AttrNames>
+        <Item Value="DyeingWoNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="GreigeContractNo">
+      <AttrNames>
+        <Item Value="GreigeContractNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Value">
+      <AttrNames>
+        <Item Value="Value"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="DyeingInputDate">
+      <AttrNames>
+        <Item Value="DyeingInputDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="InspectionDate">
+      <AttrNames>
+        <Item Value="InspectionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_InspectionDone" id="InspectionDone" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="CstkPl">
+      <AttrNames>
+        <Item Value="CstkPl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="AccessoriesOrderDate">
+      <AttrNames>
+        <Item Value="AccessoriesOrderDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="Accessories">
+      <AttrNames>
+        <Item Value="Accessories"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="MoNo">
+      <AttrNames>
+        <Item Value="MoNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ViewerNote">
+      <AttrNames>
+        <Item Value="ViewerNote"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ProgramManager">
+      <AttrNames>
+        <Item Value="ProgramManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ProgramPhase">
+      <AttrNames>
+        <Item Value="ProgramPhase"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_PoStatus" id="PoStatus" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="PoRecDate">
+      <AttrNames>
+        <Item Value="PoRecDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_ShipTerm" id="ShipTerm" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ShipmentDate">
+      <AttrNames>
+        <Item Value="ShipmentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="LcStatus">
+      <AttrNames>
+        <Item Value="LcStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="DyeingStatus">
+      <AttrNames>
+        <Item Value="DyeingStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="GreigeCompletionDate">
+      <AttrNames>
+        <Item Value="GreigeCompletionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_CurrencyCode" id="CurrencyCode" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="ExMill">
+      <AttrNames>
+        <Item Value="ExMill"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ContainerBookingDate">
+      <AttrNames>
+        <Item Value="ContainerBookingDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_ContainerBooked" id="ContainerBooked"
+          DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Ner">
+      <AttrNames>
+        <Item Value="Ner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="StitchInputDate">
+      <AttrNames>
+        <Item Value="StitchInputDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="BookingMonth">
+      <AttrNames>
+        <Item Value="BookingMonth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="PoStatusLookupCode">
+      <AttrNames>
+        <Item Value="PoStatusLookupCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ProgramId">
+      <AttrNames>
+        <Item Value="ProgramId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ShipMode">
+      <AttrNames>
+        <Item Value="ShipMode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="SpHeaderId">
+      <AttrNames>
+        <Item Value="SpHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="VersionNumber">
+      <AttrNames>
+        <Item Value="VersionNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_SalesPlanningHeader2Iterator" StaticList="false"
+          Uses="LOV_CustAcctId" id="Customer" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="Delivery">
+      <AttrNames>
+        <Item Value="Delivery"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action IterBinding="VO_SalesPlanningLines2Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="CustPoNo1">
+      <AttrNames>
+        <Item Value="CustPoNo"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="VO_SalesPlanningLines2Iterator"
+          id="VO_SalesPlanningLines2">
+      <nodeDefinition DefName="model.VO.VO_SalesPlanningLines"
+                      Name="VO_SalesPlanningLines20">
+        <AttrNames>
+          <Item Value="ArticleId"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="Quantity"/>
+          <Item Value="Remarks"/>
+          <Item Value="SpHeaderId"/>
+          <Item Value="SpLineId"/>
+          <Item Value="Uom"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="Article"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="VO_SalesPlanningHeader2Iterator" id="Execute"
+            InstanceName="AppModuleDataControl.VO_SalesPlanningHeader3"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ThirdPartyAudit">
+      <AttrNames>
+        <Item Value="ThirdPartyAudit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Carton">
+      <AttrNames>
+        <Item Value="Carton"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="Stiffers">
+      <AttrNames>
+        <Item Value="Stiffers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Inserts">
+      <AttrNames>
+        <Item Value="Inserts"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="CareLabel">
+      <AttrNames>
+        <Item Value="CareLabel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Bags">
+      <AttrNames>
+        <Item Value="Bags"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="NormalThread">
+      <AttrNames>
+        <Item Value="NormalThread"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="SylkoThread">
+      <AttrNames>
+        <Item Value="SylkoThread"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ElasticCordFusing">
+      <AttrNames>
+        <Item Value="ElasticCordFusing"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="InhouseStickers">
+      <AttrNames>
+        <Item Value="InhouseStickers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator" id="Misc">
+      <AttrNames>
+        <Item Value="Misc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_SalesPlanningHeader2Iterator"
+                     id="ImportedMisc">
+      <AttrNames>
+        <Item Value="ImportedMisc"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VO_XXSalesPlanningProgram"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.VO.VO_XXSalesPlanningProgramRowImpl"
+  ComponentClass="model.VO.VO_XXSalesPlanningProgramImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.VO_XXSalesPlanningProgram_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="u"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getu()]]></TransientExpression>
+  </Variable>
+  <Variable
+    Name="rsp_id"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getrsp_id()]]></TransientExpression>
+  </Variable>
+  <Variable
+    Name="resp"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getresp()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="VO_XXSalesPlanningPhase1"
+    ViewObjectName="model.VO.VO_XXSalesPlanningPhase"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_XXSalesPlanningProgram1"
+    ViewObjectName="model.VO.VO_XXSalesPlanningProgram"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_ARCustomers1"
+    ViewObjectName="model.VO.VO_ARCustomers"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProgramPhase"
+    ListVOName="VO_XXSalesPlanningPhase1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProgramPhase"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PhaseName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PhaseId"/>
+      <Item Value="ProgramPhase"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProgramPhase"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CustomerName"
+    ListVOName="VO_ARCustomers1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_CustomerName_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustAcctId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerNumber"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="VO_ARCustomersCriteria"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT EO_XXSalesPlanningProgram.CUST_ACCT_ID, 
+       EO_XXSalesPlanningProgram.PROGRAM_ID, 
+EO_XXSalesPlanningProgram.PROGRAM_MANAGER,
+(
+select user_name from fnd_user
+where user_id=EO_XXSalesPlanningProgram.PROGRAM_MANAGER
+) PRG_MANAGER,
+       EO_XXSalesPlanningProgram.PROGRAM_NAME, 
+       EO_XXSalesPlanningProgram.PROGRAM_PHASE,
+       EO_XXSalesPlanningProgram.LAST_UPDATED_BY,
+       EO_XXSalesPlanningProgram.CREATED_BY,
+(select customer_name from AR_CUSTOMERS WHERE customer_id = EO_XXSalesPlanningProgram.CUST_ACCT_ID) as customer_name,
+(select program_phase from XX_SALES_PLANNING_PHASE WHERE phase_id = EO_XXSalesPlanningProgram.PROGRAM_PHASE) AS phase_name
+FROM XX_SALES_PLANNING_PROGRAM EO_XXSalesPlanningProgram
+where  (:rsp_id= :resp or :u=program_manager)]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EO_XXSalesPlanningProgram"
+    Entity="model.EO.EO_XXSalesPlanningProgram"/>
+  <ViewAttribute
+    Name="CustAcctId"
+    PrecisionRule="true"
+    EntityAttrName="CustAcctId"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="CUST_ACCT_ID"/>
+  <ViewAttribute
+    Name="ProgramId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProgramId"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="PROGRAM_ID"/>
+  <ViewAttribute
+    Name="ProgramManager"
+    PrecisionRule="true"
+    EntityAttrName="ProgramManager"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="PROGRAM_MANAGER"/>
+  <ViewAttribute
+    Name="PrgManager"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRG_MANAGER"
+    Expression="PRG_MANAGER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgramName"
+    PrecisionRule="true"
+    EntityAttrName="ProgramName"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="PROGRAM_NAME"/>
+  <ViewAttribute
+    Name="ProgramPhase"
+    PrecisionRule="true"
+    EntityAttrName="ProgramPhase"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="PROGRAM_PHASE"
+    LOVName="LOV_ProgramPhase">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="EO_XXSalesPlanningProgram"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CustomerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_CustomerName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PhaseName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PHASE_NAME"
+    Expression="PHASE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="VO_XXSppArticle"
+    ViewLink="model.VL.VL_ProgramArticle"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VO_XXSppSize"
+    ViewLink="model.VL.VL_ProgramSize"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VO_XXSppColor"
+    ViewLink="model.VL.VL_ProgramColor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

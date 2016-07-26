@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EO_XXSppArticle"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="XX_SPP_ARTICLE"
+  AliasName="EO_XXSppArticle"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ProgramId"
+    IsNotNull="true"
+    ColumnName="PROGRAM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_SPP_ARTICLE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ArticleId"
+    IsNotNull="true"
+    ColumnName="ARTICLE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_SPP_ARTICLE"
+    PrimaryKey="true"
+    Precision="255">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_SPP_ARTICLE"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_SPP_ARTICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_SPP_ARTICLE"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_SPP_ARTICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionNumber"
+    ColumnName="VERSION_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_SPP_ARTICLE"
+    ChangeIndicator="true"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="EO_XXSalesPlanningProgramUpdate"
+    Association="model.EO.SysC00497427Assoc"
+    AssociationEnd="model.EO.SysC00497427Assoc.EO_XXSalesPlanningProgramUpdate"
+    AssociationOtherEnd="model.EO.SysC00497427Assoc.EO_XXSppArticle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="EoXxspparticlePrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="EO_XXSPPARTICLE_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.EO_XXSppArticle.ProgramId"/>
+      <Item Value="model.EO.EO_XXSppArticle.ArticleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00497424">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00497424"/>
+      <Attr Name="_checkCondition" Value='"PROGRAM_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.EO_XXSppArticle.ProgramId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00497425">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00497425"/>
+      <Attr Name="_checkCondition" Value='"ARTICLE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.EO_XXSppArticle.ArticleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00497427">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C00489467"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C00497427"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.EO_XXSppArticle.ProgramId"/>
+    </AttrArray>
+  </Key>
+</Entity>

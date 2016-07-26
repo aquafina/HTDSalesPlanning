@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VO_SalesPlanningLines"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.VO_SalesPlanningLines_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="VO_SalesPlanningArticle1"
+    ViewObjectName="model.VO.VO_SalesPlanningArticle"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Article"
+    ListVOName="VO_SalesPlanningArticle1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Article"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ArticleId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Article"/>
+      <Item Value="ArticleId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Article"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT EO_SalesPlanningLines.ARTICLE_ID, 
+       EO_SalesPlanningLines.CREATED_BY, 
+       EO_SalesPlanningLines.CREATION_DATE, 
+       EO_SalesPlanningLines.LAST_UPDATE_DATE, 
+       EO_SalesPlanningLines.LAST_UPDATED_BY, 
+       EO_SalesPlanningLines.QUANTITY, 
+       EO_SalesPlanningLines.REMARKS, 
+       EO_SalesPlanningLines.SP_HEADER_ID, 
+       EO_SalesPlanningLines.SP_LINE_ID, 
+       EO_SalesPlanningLines.UOM, 
+       EO_SalesPlanningLines.VERSION_NUMBER,
+(
+select ARTICLE from XX_SALES_PLANNING_ARTICLE spa
+where spa.ARTICLE_ID=EO_SalesPlanningLines.ARTICLE_ID
+) article
+FROM XX_SALES_PLANNING_LINES EO_SalesPlanningLines]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EO_SalesPlanningLines"
+    Entity="model.EO.EO_SalesPlanningLines"/>
+  <ViewAttribute
+    Name="ArticleId"
+    PrecisionRule="true"
+    EntityAttrName="ArticleId"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="ARTICLE_ID"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="Quantity"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="SpHeaderId"
+    PrecisionRule="true"
+    EntityAttrName="SpHeaderId"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="SP_HEADER_ID"/>
+  <ViewAttribute
+    Name="SpLineId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SpLineId"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="SP_LINE_ID"/>
+  <ViewAttribute
+    Name="Uom"
+    PrecisionRule="true"
+    EntityAttrName="Uom"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="UOM"/>
+  <ViewAttribute
+    Name="VersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="VersionNumber"
+    EntityUsage="EO_SalesPlanningLines"
+    AliasName="VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Article"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ARTICLE"
+    Expression="ARTICLE"
+    SQLType="VARCHAR"
+    LOVName="LOV_Article">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

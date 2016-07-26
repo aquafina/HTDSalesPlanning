@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VO_XXSppColor"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.VO.VO_XXSppColorRowImpl"
+  ComponentClass="model.VO.VO_XXSppColorImpl"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="11"
+  QueryHint="FIRST_ROWS_11">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.VO_XXSppColor_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="LOV_XXSppColor1"
+    ViewObjectName="model.VO.LOV_XXSppColor"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ColorDesc"
+    ListVOName="LOV_XXSppColor1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ColorDesc_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ColorDesc"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ColorId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Color"/>
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="LOV_XXSppColorCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT EO_XXSppColor.COLOR_ID, 
+       EO_XXSppColor.CREATED_BY, 
+       EO_XXSppColor.CREATION_DATE, 
+       EO_XXSppColor.LAST_UPDATE_DATE, 
+       EO_XXSppColor.LAST_UPDATED_BY, 
+       EO_XXSppColor.PROGRAM_ID, 
+       EO_XXSppColor.VERSION_NUMBER,
+(select color from  XX_SP_COLOR_LOV_V where id =EO_XXSppColor.COLOR_ID ) color_desc
+
+FROM XX_SPP_COLOR EO_XXSppColor]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EO_XXSppColor"
+    Entity="model.EO.EO_XXSppColor"/>
+  <ViewAttribute
+    Name="ColorId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ColorId"
+    EntityUsage="EO_XXSppColor"
+    AliasName="COLOR_ID"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="EO_XXSppColor"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="EO_XXSppColor"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="EO_XXSppColor"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="EO_XXSppColor"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="ProgramId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProgramId"
+    EntityUsage="EO_XXSppColor"
+    AliasName="PROGRAM_ID"/>
+  <ViewAttribute
+    Name="VersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="VersionNumber"
+    EntityUsage="EO_XXSppColor"
+    AliasName="VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="ColorDesc"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR_DESC"
+    Expression="COLOR_DESC"
+    SQLType="VARCHAR"
+    LOVName="LOV_ColorDesc">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

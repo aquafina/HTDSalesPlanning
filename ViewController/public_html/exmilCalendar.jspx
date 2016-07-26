@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/AppTemplate.jspx" id="pt1">
+          <f:facet name="content">
+            <af:panelGroupLayout id="pgl1" layout="vertical"
+                                 inlineStyle="margin-top:20px">
+              <af:calendar value="#{bindings.VOExmillCalander1.calendarModel}"
+                           id="c1" inlineStyle="width:inherit; color:red;" listCount="100"
+                           view="list"
+                           calendarActivityListener="#{CalendarAction.calActListener}">
+                <f:facet name="activityDetail">
+                  <af:popup id="p1"  binding="#{CalendarAction.detailPOPup}">
+                    <af:dialog id="d2" type="none"
+                               closeIconVisible="false" title="Detail"
+                               inlineStyle="color:green;">
+                      <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                           inlineStyle="border:1px #cecece solid;padding:2px">
+                        <af:outputText value="Activity on" id="ot8"
+                                       inlineStyle="margin-right:5px; color:black;"/>
+                        <af:outputText value="#{bindings.ExMill.inputValue}"
+                                       id="ot4"
+                                       inlineStyle="color:black; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pgl2" layout="vertical"
+                                           inlineStyle="width:350px; background-color:White;margin-top:10px;margin-bottom:5px;padding:4px">
+                        <af:panelGridLayout id="pgl3">
+                          <af:gridRow marginTop="7px" height="auto" id="gr2">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gc8">
+                              <af:outputText value="Program Name:" id="ot1"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gc1">
+                              <af:outputText value="#{bindings.ProgramName.inputValue}" id="ot2"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="7px" height="auto" id="gr3">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gc2">
+                              <af:outputText value="Program Manager:" id="ot3"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gc3">
+                              <af:outputText value="#{bindings.UserName.inputValue}" id="ot5"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="7px" height="auto" id="gr1">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gc4">
+                              <af:outputText value="Customer Name:" id="ot6"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gc5">
+                              <af:outputText value="#{bindings.CustName.inputValue}" id="ot7"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="7px" marginBottom="7px"
+                                      height="auto" id="gr4">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gc6">
+                              <af:outputText value="Customer PO#:" id="ot9"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gc7">
+                              <af:outputText id="ot10"
+                                             value="#{bindings.CustPoNo.inputValue}"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow id="gr5" height="auto" marginTop="7px"
+                                      marginBottom="7px">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gridCell1">
+                              <af:outputText value="Ner Range:"
+                                             id="outputText1"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gridCell2">
+                              <af:outputText id="outputText2"
+                                             value="#{bindings.Ner.inputValue}"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow id="gridRow1" height="auto"
+                                      marginTop="7px" marginBottom="7px">
+                            <af:gridCell marginStart="7px" width="auto"
+                                         id="gridCell3">
+                              <af:outputText value="Third Party Audit:" id="outputText3"
+                                             inlineStyle="font-weight:bold;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="7px" marginEnd="7px"
+                                         width="auto" id="gridCell4">
+                              <af:outputText id="outputText4"
+                                             value="#{bindings.ThirdPartyAudit.inputValue}"
+                                             inlineStyle="text-decoration:underline;"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                        </af:panelGridLayout>
+                      </af:panelGroupLayout>
+                      <af:commandButton text="Okay" id="cb1"
+                                        actionListener="#{CalendarAction.onCancel}"
+                                        inlineStyle="font-weight:bold;"/>
+                    </af:dialog>
+                  </af:popup>
+                </f:facet>
+              </af:calendar>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="search"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

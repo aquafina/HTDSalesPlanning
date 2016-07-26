@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="exmilCalendarPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VOExmillCalander1" RangeSize="-1"
+              DataControl="AppModuleDataControl"
+              id="VOExmillCalander1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="VOExmillCalander1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="startDate"
+                 NDValue="#{bindings.VOExmillCalander1.startDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="endDate"
+                 NDValue="#{bindings.VOExmillCalander1.endDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="timeZone"
+                 NDValue="#{bindings.VOExmillCalander1.timeZoneId}"
+                 NDType="java.lang.String"/>
+    </action>
+    <calendar IterBinding="VOExmillCalander1Iterator" id="VOExmillCalander1"
+              xmlns="http://xmlns.oracle.com/adf/faces/binding"
+              ActionBindingName="ExecuteWithParams">
+      <nodeDefinition DefName="model.VO.VOExmillCalander">
+        <AttrNames>
+          <Item Type="id" Value="SpHeaderId"/>
+          <Item Type="providerId" Value="SpHeaderId"/>
+          <Item Type="title" Value="ProgramName"/>
+          <Item Type="startTime" Value="ExMill"/>
+          <Item Type="endTime" Value="ExMill"/>
+        </AttrNames>
+      </nodeDefinition>
+    </calendar>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="ExMill">
+      <AttrNames>
+        <Item Value="ExMill"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="ProgramName">
+      <AttrNames>
+        <Item Value="ProgramName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="CustName">
+      <AttrNames>
+        <Item Value="CustName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="CustPoNo">
+      <AttrNames>
+        <Item Value="CustPoNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator" id="Ner">
+      <AttrNames>
+        <Item Value="Ner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VOExmillCalander1Iterator"
+                     id="ThirdPartyAudit">
+      <AttrNames>
+        <Item Value="ThirdPartyAudit"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

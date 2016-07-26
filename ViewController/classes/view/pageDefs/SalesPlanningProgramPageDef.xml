@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SalesPlanningProgramPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XXSalesPlanningProgram1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_XXSalesPlanningProgram1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="VO_XXSalesPlanningProgram1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_XXSalesPlanningProgram1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false"
+                  IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                  Uses="LOV_CustomerName" id="CustomerName"/>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="CustAcctId">
+      <AttrNames>
+        <Item Value="CustAcctId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramId">
+      <AttrNames>
+        <Item Value="ProgramId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramManager">
+      <AttrNames>
+        <Item Value="ProgramManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramName">
+      <AttrNames>
+        <Item Value="ProgramName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_XXSalesPlanningProgram1Iterator" StaticList="false"
+          Uses="LOV_ProgramPhase" id="ProgramPhase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="PhaseName">
+      <AttrNames>
+        <Item Value="PhaseName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="VO_XXSalesPlanningProgram1Iterator"
+          id="VO_XXSalesPlanningProgram1">
+      <nodeDefinition DefName="model.VO.VO_XXSalesPlanningProgram"
+                      Name="VO_XXSalesPlanningProgram10">
+        <AttrNames>
+          <Item Value="CustAcctId"/>
+          <Item Value="ProgramId"/>
+          <Item Value="ProgramManager"/>
+          <Item Value="ProgramName"/>
+          <Item Value="ProgramPhase"/>
+          <Item Value="CustomerName"/>
+          <Item Value="PrgManager"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="untitled1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XXSalesPlanningHeaderMgt2" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_XXSalesPlanningHeaderMgt2Iterator"/>
+    <searchRegion Binds="VO_XXSalesPlanningHeaderMgt2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_XXSalesPlanningHeaderMgt2Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="VO_XXSalesPlanningHeaderMgt2Iterator"
+          id="VO_XXSalesPlanningHeaderMgt2">
+      <nodeDefinition DefName="model.VO.VO_XXSalesPlanningHeaderMgt"
+                      Name="VO_XXSalesPlanningHeaderMgt20">
+        <AttrNames>
+          <Item Value="Accessories"/>
+          <Item Value="AccessoriesOrderDate"/>
+          <Item Value="BookMonth"/>
+          <Item Value="BookingMonth"/>
+          <Item Value="ContainerBooked"/>
+          <Item Value="ContainerBookingDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CstkPl"/>
+          <Item Value="CurrencyCode"/>
+          <Item Value="CustPoNo"/>
+          <Item Value="DyeingInputDate"/>
+          <Item Value="DyeingStatus"/>
+          <Item Value="DyeingWoNo"/>
+          <Item Value="ExMill"/>
+          <Item Value="GreigeCompletionDate"/>
+          <Item Value="GreigeContractNo"/>
+          <Item Value="InspectionDate"/>
+          <Item Value="InspectionDone"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LcStatus"/>
+          <Item Value="Ner"/>
+          <Item Value="PoRecDate"/>
+          <Item Value="PoStatusLookupCode"/>
+          <Item Value="PoType"/>
+          <Item Value="ProgramId"/>
+          <Item Value="Remarks"/>
+          <Item Value="SalesContractNo"/>
+          <Item Value="ShipMode"/>
+          <Item Value="ShipTerm"/>
+          <Item Value="ShipmentDate"/>
+          <Item Value="SpHeaderId"/>
+          <Item Value="StitchInputDate"/>
+          <Item Value="Value"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="ViewerNote"/>
+          <Item Value="Article"/>
+          <Item Value="ProgramName"/>
+          <Item Value="ProgramManager"/>
+          <Item Value="CustAcctId"/>
+          <Item Value="CustomerName"/>
+          <Item Value="ProgramPhase"/>
+          <Item Value="Potypemeaning"/>
+          <Item Value="ShipModeL"/>
+          <Item Value="Lastupdatedbyuser"/>
+          <Item Value="Createdbyuser"/>
+          <Item Value="PoStatus"/>
+          <Item Value="Delivery"/>
+          <Item Value="MoNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

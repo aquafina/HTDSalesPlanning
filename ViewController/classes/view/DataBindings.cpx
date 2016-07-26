@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="view" ClientType="Generic"
+             ErrorHandlerClass="view.MyCustomErrorHandler">
+  <definitionFactories>
+    <factory className="oracle.adfinternal.view.faces.model.binding.ExtendedFacesBindingDefFactoryImpl"
+             nameSpace="http://xmlns.oracle.com/adf/faces/binding"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/SalesPlanningProgram.jsp"
+          usageId="view_SalesPlanningProgramPageDef"/>
+    <page path="/NewSalesContracts.jsp"
+          usageId="view_NewSalesContractsPageDef"/>
+    <page path="/test.jsp" usageId="view_untitled1PageDef"/>
+    <page path="/ViewSalesContract.jsp"
+          usageId="view_ViewSalesContractPageDef"/>
+    <page path="/AssignPrograms.jsp"
+          usageId="view_AssignProgramsPageDef"/>
+    <page path="/Program.jsp" usageId="view_ProgramPageDef"/>
+    <page path="/viewCustomerPO.jsp" usageId="view_viewCustomerPOPageDef"/>
+    <page path="/exmilCalendar.jspx" usageId="view_exmilCalendarPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_SalesPlanningProgramPageDef"
+          path="view.pageDefs.SalesPlanningProgramPageDef"/>
+    <page id="view_NewSalesContractPageDef"
+          path="view.pageDefs.NewSalesContractPageDef"/>
+    <page id="view_NewSalesContractsPageDef"
+          path="view.pageDefs.NewSalesContractsPageDef"/>
+    <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
+    <page id="view_ViewSalesContractPageDef"
+          path="view.pageDefs.ViewSalesContractPageDef"/>
+    <page id="view_AssignProgramsPageDef"
+          path="view.pageDefs.AssignProgramsPageDef"/>
+    <page id="view_ProgramPageDef" path="view.pageDefs.ProgramPageDef"/>
+    <page id="view_viewCustomerPOPageDef"
+          path="view.pageDefs.viewCustomerPOPageDef"/>
+    <page id="view_exmilCalendarPageDef"
+          path="view.pageDefs.exmilCalendarPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model.VO"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

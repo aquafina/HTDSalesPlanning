@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="viewCustomerPOPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_SalesPlanningHeader3" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_SalesPlanningHeader3Iterator"/>
+    <searchRegion Binds="VO_SalesPlanningHeader3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_SalesPlanningHeader3Query"/>
+    <iterator Binds="VO_SalesPlanningLines2" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_SalesPlanningLines2Iterator"/>
+    <searchRegion Binds="VO_SalesPlanningLines2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_SalesPlanningLines2Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="VO_SalesPlanningHeader3Iterator"
+          id="VO_SalesPlanningHeader3">
+      <nodeDefinition DefName="model.VO.VO_SalesPlanningHeader"
+                      Name="VO_SalesPlanningHeader30">
+        <AttrNames>
+          <Item Value="ProgramName"/>
+          <Item Value="ProgramManager"/>
+          <Item Value="CustomerName"/>
+          <Item Value="ProgramPhase"/>
+          <Item Value="CustPoNo"/>
+          <Item Value="PoStatus"/>
+          <Item Value="Potypemeaning"/>
+          <Item Value="PoRecDate"/>
+          <Item Value="LcStatus"/>
+          <Item Value="ShipModeL"/>
+          <Item Value="ShipTerm"/>
+          <Item Value="ShipmentDate"/>
+          <Item Value="ExMill"/>
+          <Item Value="InspectionDate"/>
+          <Item Value="ContainerBookingDate"/>
+          <Item Value="GreigeCompletionDate"/>
+          <Item Value="DyeingWoNo"/>
+          <Item Value="DyeingStatus"/>
+          <Item Value="DyeingInputDate"/>
+          <Item Value="StitchInputDate"/>
+          <Item Value="Ner"/>
+          <Item Value="Accessories"/>
+          <Item Value="AccessoriesOrderDate"/>
+          <Item Value="Remarks"/>
+          <Item Value="CstkPl"/>
+          <Item Value="BookMonth"/>
+          <Item Value="SalesContractNo"/>
+          <Item Value="Value"/>
+          <Item Value="CurrencyCode"/>
+          <Item Value="ViewerNote"/>
+          <Item Value="MoNo"/>
+          <Item Value="Delivery"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="BookingMonth"/>
+          <Item Value="ContainerBooked"/>
+          <Item Value="GreigeContractNo"/>
+          <Item Value="InspectionDone"/>
+          <Item Value="PoStatusLookupCode"/>
+          <Item Value="PoType"/>
+          <Item Value="ProgramId"/>
+          <Item Value="ShipMode"/>
+          <Item Value="SpHeaderId"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="Customer"/>
+          <Item Value="ThirdPartyAudit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_SalesPlanningLines2Iterator"
+          id="VO_SalesPlanningLines2">
+      <nodeDefinition DefName="model.VO.VO_SalesPlanningLines"
+                      Name="VO_SalesPlanningLines20">
+        <AttrNames>
+          <Item Value="ArticleId"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="Quantity"/>
+          <Item Value="Remarks"/>
+          <Item Value="SpHeaderId"/>
+          <Item Value="SpLineId"/>
+          <Item Value="Uom"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="Article"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

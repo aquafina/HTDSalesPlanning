@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="DataForm"
+               type="oracle.adf.controller.v2.struts.forms.BindingContainerActionForm"/>
+  </form-beans>
+  <action-mappings>
+    <action path="/SalesPlanningProgram"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/SalesPlanningProgram.jsp" name="DataForm"/>
+    <action path="/AppTemplate"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/AppTemplate.jspx" name="DataForm"/>
+    <action path="/untitled1"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/untitled1.jsp" name="DataForm"/>
+    <action path="/templateDef1"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/templateDef1.jspx" name="DataForm"/>
+    <action path="/untitled2"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/untitled2.jsp" name="DataForm"/>
+    <action path="/NewSalesContract"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/WEB-INF/NewSalesContract.jsp" name="DataForm"/>
+    <action path="/NewSalesContract"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/NewSalesContract.jsp" name="DataForm"/>
+    <action path="/NewSalesContracts"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/NewSalesContracts.jsp" name="DataForm"/>
+    <action path="/NormalPageTemp"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/NormalPageTemp.jspx" name="DataForm"/>
+    <action path="/ViewSalesContract"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/ViewSalesContract.jsp" name="DataForm"/>
+    <action path="/ViewSalesContract"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/C:/Users/user/Desktop/HTDSalesPlanning/HTDSalesPlanning/ViewController/public_html/ViewSalesContract.jsp"
+            name="DataForm"/>
+    <action path="/AssignPrograms"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/WEB-INF/AssignPrograms.jsp" name="DataForm"/>
+    <action path="/Program"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/Program.jsp" name="DataForm"/>
+    <action path="/errorPage"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/errorPage.jsp" name="DataForm"/>
+    <action path="/viewCustomerPO"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/viewCustomerPO.jsp" name="DataForm"/>
+    <action path="/exmilCalendar"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/exmilCalendar.jspx" name="DataForm"/>
+    <action path="/test"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/../../../../../Backups And Tests/Tests/ADFTEST/UsingCalandar/ViewController/public_html/test.jsp"
+            name="DataForm"/>
+  </action-mappings>
+  <message-resources parameter="view.ApplicationResources"/>
+</struts-config>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VO_XXSppArticle"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.VO.VO_XXSppArticleRowImpl"
+  ComponentClass="model.VO.VO_XXSppArticleImpl"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26"
+  QueryHint="FIRST_ROWS_26">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.VO_XXSppArticle_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="LOV_XXSppArticle1"
+    ViewObjectName="model.VO.LOV_XXSppArticle"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningArticle1"
+    ViewObjectName="model.VO.VO_SalesPlanningArticle"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ArticleDesc"
+    ListVOName="VO_SalesPlanningArticle1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ArticleDesc"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ArticleId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Article"/>
+      <Item Value="ArticleId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Article"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT EO_XXSppArticle.ARTICLE_ID, 
+       EO_XXSppArticle.CREATED_BY, 
+       EO_XXSppArticle.CREATION_DATE, 
+       EO_XXSppArticle.LAST_UPDATE_DATE, 
+       EO_XXSppArticle.LAST_UPDATED_BY, 
+       EO_XXSppArticle.PROGRAM_ID, 
+       EO_XXSppArticle.VERSION_NUMBER,
+(select article from xx_sales_planning_article where article_id = EO_XXSppArticle.ARTICLE_ID) article_desc
+
+FROM XX_SPP_ARTICLE EO_XXSppArticle]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EO_XXSppArticle"
+    Entity="model.EO.EO_XXSppArticle"/>
+  <ViewAttribute
+    Name="ArticleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArticleId"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="ARTICLE_ID"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="ProgramId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProgramId"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="PROGRAM_ID"/>
+  <ViewAttribute
+    Name="VersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="VersionNumber"
+    EntityUsage="EO_XXSppArticle"
+    AliasName="VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="ArticleDesc"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ARTICLE_DESC"
+    Expression="ARTICLE_DESC"
+    SQLType="VARCHAR"
+    LOVName="LOV_ArticleDesc">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

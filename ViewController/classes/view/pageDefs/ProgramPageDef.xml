@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ProgramPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XXSalesPlanningProgram1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_XXSalesPlanningProgram1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="VO_XXSppArticle2" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_XXSppArticle2Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="VO_XXSppSize2" RangeSize="10"
+              DataControl="AppModuleDataControl" id="VO_XXSppSize2Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="VO_XXSppColor2" RangeSize="10"
+              DataControl="AppModuleDataControl" id="VO_XXSppColor2Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="VO_XXSalesPlanningProgram1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VO_XXSalesPlanningProgram1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false"
+                  IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                  Uses="LOV_CustomerName" id="CustomerName"/>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="CustAcctId">
+      <AttrNames>
+        <Item Value="CustAcctId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramId">
+      <AttrNames>
+        <Item Value="ProgramId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramManager">
+      <AttrNames>
+        <Item Value="ProgramManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="PrgManager">
+      <AttrNames>
+        <Item Value="PrgManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="ProgramName">
+      <AttrNames>
+        <Item Value="ProgramName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_XXSalesPlanningProgram1Iterator" StaticList="false"
+          Uses="LOV_ProgramPhase" id="ProgramPhase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSalesPlanningProgram1Iterator"
+                     id="PhaseName">
+      <AttrNames>
+        <Item Value="PhaseName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="VO_XXSppArticle2Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="VO_XXSppSize2Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="VO_XXSppColor2Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <tree IterBinding="VO_XXSppArticle2Iterator" id="VO_XXSppArticle2">
+      <nodeDefinition DefName="model.VO.VO_XXSppArticle"
+                      Name="VO_XXSppArticle20">
+        <AttrNames>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="ProgramId"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="ArticleDesc"/>
+          <Item Value="ArticleId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_XXSalesPlanningProgram1Iterator"
+          id="VO_XXSalesPlanningProgram1">
+      <nodeDefinition DefName="model.VO.VO_XXSalesPlanningProgram"
+                      Name="VO_XXSalesPlanningProgram10">
+        <AttrNames>
+          <Item Value="CustAcctId"/>
+          <Item Value="ProgramId"/>
+          <Item Value="ProgramManager"/>
+          <Item Value="PrgManager"/>
+          <Item Value="ProgramName"/>
+          <Item Value="ProgramPhase"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CustomerName"/>
+          <Item Value="PhaseName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="make_budget_lines"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="make_budget_lines"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="pid" NDType="int"/>
+    </methodAction>
+    <tree IterBinding="VO_XXSppColor2Iterator" id="VO_XXSppColor2">
+      <nodeDefinition DefName="model.VO.VO_XXSppColor" Name="VO_XXSppColor20">
+        <AttrNames>
+          <Item Value="ColorId"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="ProgramId"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="ColorDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="VO_XXSalesPlanningProgram1Iterator" id="CreateInsert3"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="VO_XXSppSize2Iterator" id="VO_XXSppSize2">
+      <nodeDefinition DefName="model.VO.VO_XXSppSize" Name="VO_XXSppSize20">
+        <AttrNames>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="ProgramId"/>
+          <Item Value="SizeId"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="SizeDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

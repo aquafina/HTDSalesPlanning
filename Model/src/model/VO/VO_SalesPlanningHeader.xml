@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VO_SalesPlanningHeader"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.VO.VO_SalesPlanningHeaderRowImpl"
+  ComponentClass="model.VO.VO_SalesPlanningHeaderImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.VO_SalesPlanningHeader_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="Program_Name"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="Customer_Id"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="Cust_PO_NO"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="Sales_Contract_NO"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="Dyeing_WO_NO"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="PO_Status"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="Greige_Contract_NO"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="user_id"
+    Kind="where"
+    
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getuser_id()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="rsp_id"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getrsp_id()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="resp"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.object.viewObject.getresp()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="VO_XXSalesPlanningProgram1"
+    ViewObjectName="model.VO.VO_XXSalesPlanningProgram"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningPoType1"
+    ViewObjectName="model.VO.VO_SalesPlanningPoType"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningShipMode1"
+    ViewObjectName="model.VO.VO_SalesPlanningShipMode"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningBookMonth1"
+    ViewObjectName="model.VO.VO_SalesPlanningBookMonth"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningCurrencyCode1"
+    ViewObjectName="model.VO.VO_SalesPlanningCurrencyCode"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningShipTerm1"
+    ViewObjectName="model.VO.VO_SalesPlanningShipTerm"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningYesNo1"
+    ViewObjectName="model.VO.VO_SalesPlanningYesNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningPOStatus1"
+    ViewObjectName="model.VO.VO_SalesPlanningPOStatus"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SalesPlanningHeader1"
+    ViewObjectName="model.VO.VO_SalesPlanningHeader"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SelectedCustName1"
+    ViewObjectName="model.VO.VO_SelectedCustName"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SelectedCustPoNo1"
+    ViewObjectName="model.VO.VO_SelectedCustPoNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SelectedSalesContractNo1"
+    ViewObjectName="model.VO.VO_SelectedSalesContractNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SelectedDyeingWoNo1"
+    ViewObjectName="model.VO.VO_SelectedDyeingWoNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_SelectedGriageContractNo1"
+    ViewObjectName="model.VO.VO_SelectedGriageContractNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_XXSalesPlanningPhase1"
+    ViewObjectName="model.VO.VO_XXSalesPlanningPhase"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProgramName"
+    ListVOName="VO_XXSalesPlanningProgram1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProgramName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="ProgramManager"/>
+      <Item Value="ProgramPhase"/>
+      <Item Value="ProgramId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProgramName"/>
+      <Item Value="CustomerName"/>
+      <Item Value="PrgManager"/>
+      <Item Value="PhaseName"/>
+      <Item Value="ProgramId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProgramName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Potypemeaning"
+    ListVOName="VO_SalesPlanningPoType1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Potypemeaning"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PoType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Meaning"/>
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShipModeL"
+    ListVOName="VO_SalesPlanningShipMode1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShipModeL"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ShipMode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Meaning"/>
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BookMonth"
+    ListVOName="VO_SalesPlanningBookMonth1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BookMonth"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Month"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Month"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CurrencyCode"
+    ListVOName="VO_SalesPlanningCurrencyCode1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShipTerm"
+    ListVOName="VO_SalesPlanningShipTerm1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShipTerm"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContainerBooked"
+    ListVOName="VO_SalesPlanningYesNo1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_ContainerBooked_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContainerBooked"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InspectionDone"
+    ListVOName="VO_SalesPlanningYesNo1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_InspectionDone_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InspectionDone"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PoStatus"
+    ListVOName="VO_SalesPlanningPOStatus1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PoStatus"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PoStatusLookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Meaning"/>
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CustAcctId"
+    ListVOName="VO_SelectedCustName1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Customer"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SalesContractNo"
+    ListVOName="VO_SelectedSalesContractNo1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesContractNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SalesContractNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SalesContractNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DyeingWoNo"
+    ListVOName="VO_SelectedDyeingWoNo1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DyeingWoNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DyeingWoNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DyeingWoNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GreigeContractNo"
+    ListVOName="VO_SelectedGriageContractNo1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GreigeContractNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="GreigeContractNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="GreigeContractNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CustPoNo"
+    ListVOName="VO_SelectedCustPoNo1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustPoNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustPoNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustPoNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT EO_SalesPlanningHeader.ACCESSORIES, 
+       EO_SalesPlanningHeader.ACCESSORIES_ORDER_DATE, 
+       EO_SalesPlanningHeader.BOOK_MONTH, 
+       EO_SalesPlanningHeader.BOOKING_MONTH, 
+       EO_SalesPlanningHeader.CONTAINER_BOOKED, 
+       EO_SalesPlanningHeader.CONTAINER_BOOKING_DATE, 
+       EO_SalesPlanningHeader.CREATED_BY, 
+       EO_SalesPlanningHeader.CREATION_DATE, 
+       EO_SalesPlanningHeader.CSTK_PL, 
+       EO_SalesPlanningHeader.CURRENCY_CODE, 
+       EO_SalesPlanningHeader.CUST_PO_NO, 
+       EO_SalesPlanningHeader.DYEING_INPUT_DATE, 
+       EO_SalesPlanningHeader.DYEING_STATUS, 
+       EO_SalesPlanningHeader.DYEING_WO_NO, 
+       EO_SalesPlanningHeader.EX_MILL, 
+       EO_SalesPlanningHeader.GREIGE_COMPLETION_DATE, 
+       EO_SalesPlanningHeader.GREIGE_CONTRACT_NO, 
+       EO_SalesPlanningHeader.INSPECTION_DATE, 
+       EO_SalesPlanningHeader.INSPECTION_DONE, 
+       EO_SalesPlanningHeader.LAST_UPDATE_DATE, 
+       EO_SalesPlanningHeader.LAST_UPDATED_BY, 
+       EO_SalesPlanningHeader.LC_STATUS, 
+       EO_SalesPlanningHeader.NER, 
+       EO_SalesPlanningHeader.PO_REC_DATE, 
+       EO_SalesPlanningHeader.PO_STATUS_LOOKUP_CODE, 
+       EO_SalesPlanningHeader.PO_TYPE, 
+       EO_SalesPlanningHeader.PROGRAM_ID,
+
+EO_SalesPlanningHeader.BAGS, 
+       EO_SalesPlanningHeader.NORMAL_THREAD, 
+       EO_SalesPlanningHeader.SYLKO_THREAD, 
+       EO_SalesPlanningHeader.ELASTIC_CORD_FUSING, 
+       EO_SalesPlanningHeader.INHOUSE_STICKERS, 
+       EO_SalesPlanningHeader.MISC, 
+       EO_SalesPlanningHeader.IMPORTED_MISC, 
+       EO_SalesPlanningHeader.CARTON, 
+       EO_SalesPlanningHeader.STIFFERS, 
+       EO_SalesPlanningHeader.CARE_LABEL,
+       EO_SalesPlanningHeader.INSERTS,
+
+'CARTON = '||CARTON||chr(10)||
+    'STIFFERS = '||STIFFERS||chr(10)||              
+  'INSERTS = '||INSERTS||chr(10)||
+  'CARE LABEL = '||CARE_LABEL||chr(10)||
+  'BAGS = '||BAGS||chr(10)||
+  'NORMAL THREAD = '||NORMAL_THREAD||chr(10)||
+  'SYLKO THREAD = '||SYLKO_THREAD||chr(10)||
+  'ELASTIC CORD FUSING = '||ELASTIC_CORD_FUSING||chr(10)||
+  'INHOUSE STICKERS = '||INHOUSE_STICKERS||chr(10)||
+  'MISC = '||MISC||chr(10)||
+  'IMPORTED MISC = '||IMPORTED_MISC REMARKS, 
+       EO_SalesPlanningHeader.SALES_CONTRACT_NO, 
+       EO_SalesPlanningHeader.SHIP_MODE, 
+       EO_SalesPlanningHeader.SHIP_TERM, 
+       EO_SalesPlanningHeader.SHIPMENT_DATE, 
+       EO_SalesPlanningHeader.SP_HEADER_ID, 
+       EO_SalesPlanningHeader.STITCH_INPUT_DATE, 
+       EO_SalesPlanningHeader.VALUE, 
+       EO_SalesPlanningHeader.VERSION_NUMBER, 
+       EO_SalesPlanningHeader.VIEWER_NOTE,
+       EO_SalesPlanningHeader.THIRD_PARTY_AUDIT,
+(
+select rtrim(xmlagg(xmlelement(e,spa.article||' '||spa.description||' = '||spl.quantity||',')).extract('//text()'),',') article
+        from xx_sales_planning_lines spl,
+        xx_sales_planning_article spa
+where spl.sp_header_id=EO_SalesPlanningHeader.sp_header_id
+and spl.article_id=spa.article_id
+) article,
+spp.program_name,
+       (
+select user_name from fnd_user
+where user_id=spp.PROGRAM_MANAGER
+) PROGRAM_MANAGER,
+spp.cust_acct_id,
+(
+select CUSTOMER_NAME from XX_SALES_PLANNING_PROGRAM,ar_customers
+where cust_acct_id=CUSTOMER_ID
+and PROGRAM_ID=EO_SalesPlanningHeader.PROGRAM_ID
+) Customer_name,
+(
+select Xspp.PROGRAM_PHASE from XX_SALES_PLANNING_PROGRAM spp,XX_SALES_PLANNING_PHASE xspp
+where xspp.PHASE_ID=spp.PROGRAM_PHASE
+and PROGRAM_ID=EO_SalesPlanningHeader.PROGRAM_ID
+) program_phase,
+(
+select fdvv.MEANING
+from FND_LOOKUP_VALUES_VL fdvv
+where lookup_type like 'HTD_PO_TYPE'
+and fdvv.LOOKUP_CODE=EO_SalesPlanningHeader.PO_TYPE
+) POTypeMeaning,
+(
+select fdvv.MEANING
+from FND_LOOKUP_VALUES_VL fdvv
+where lookup_type like 'HTD_SHIP_MODE'
+and fdvv.LOOKUP_CODE=EO_SalesPlanningHeader.SHIP_MODE
+) ship_mode_l,
+(
+select user_name
+from fnd_user
+where user_id=EO_SalesPlanningHeader.last_updated_by
+) lastupdatedbyuser,
+(
+select user_name
+from fnd_user
+where user_id=EO_SalesPlanningHeader.created_by
+) createdbyuser,
+(
+select fdvv.MEANING
+from FND_LOOKUP_VALUES_VL fdvv
+where lookup_type like 'HTD_PO_STATUS'
+and fdvv.LOOKUP_CODE=EO_SalesPlanningHeader.PO_STATUS_LOOKUP_CODE
+) PO_STATUS,
+apps.XX_GET_SALES_PLANNING_DELIVERY(EO_SalesPlanningHeader.CUST_PO_NO) delivery,
+apps.XX_GET_SALES_PLANNING_MO(EO_SalesPlanningHeader.CUST_PO_NO) mo_no
+FROM APPS.XX_SALES_PLANNING_HEADERS EO_SalesPlanningHeader,
+        APPS.XX_SALES_PLANNING_PROGRAM spp
+where spp.program_id=EO_SalesPlanningHeader.program_id
+and     spp.PROGRAM_PHASE <> 3
+and  (:rsp_id=:resp or :user_id=spp.program_manager)]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EO_SalesPlanningHeader"
+    Entity="model.EO.EO_SalesPlanningHeader"/>
+  <ViewAttribute
+    Name="Accessories"
+    PrecisionRule="true"
+    EntityAttrName="Accessories"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="ACCESSORIES"/>
+  <ViewAttribute
+    Name="AccessoriesOrderDate"
+    PrecisionRule="true"
+    EntityAttrName="AccessoriesOrderDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="ACCESSORIES_ORDER_DATE"/>
+  <ViewAttribute
+    Name="BookMonth"
+    PrecisionRule="true"
+    EntityAttrName="BookMonth"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="BOOK_MONTH"
+    LOVName="LOV_BookMonth">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BookingMonth"
+    PrecisionRule="true"
+    EntityAttrName="BookingMonth"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="BOOKING_MONTH"/>
+  <ViewAttribute
+    Name="ContainerBooked"
+    PrecisionRule="true"
+    EntityAttrName="ContainerBooked"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CONTAINER_BOOKED"
+    LOVName="LOV_ContainerBooked">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContainerBookingDate"
+    PrecisionRule="true"
+    EntityAttrName="ContainerBookingDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CONTAINER_BOOKING_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CstkPl"
+    PrecisionRule="true"
+    EntityAttrName="CstkPl"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CSTK_PL"/>
+  <ViewAttribute
+    Name="CurrencyCode"
+    PrecisionRule="true"
+    EntityAttrName="CurrencyCode"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CURRENCY_CODE"
+    LOVName="LOV_CurrencyCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustPoNo"
+    PrecisionRule="true"
+    EntityAttrName="CustPoNo"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CUST_PO_NO"
+    LOVName="LOV_CustPoNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DyeingInputDate"
+    PrecisionRule="true"
+    EntityAttrName="DyeingInputDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="DYEING_INPUT_DATE"/>
+  <ViewAttribute
+    Name="DyeingStatus"
+    PrecisionRule="true"
+    EntityAttrName="DyeingStatus"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="DYEING_STATUS"/>
+  <ViewAttribute
+    Name="DyeingWoNo"
+    PrecisionRule="true"
+    EntityAttrName="DyeingWoNo"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="DYEING_WO_NO"
+    LOVName="LOV_DyeingWoNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExMill"
+    PrecisionRule="true"
+    EntityAttrName="ExMill"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="EX_MILL"/>
+  <ViewAttribute
+    Name="GreigeCompletionDate"
+    PrecisionRule="true"
+    EntityAttrName="GreigeCompletionDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="GREIGE_COMPLETION_DATE"/>
+  <ViewAttribute
+    Name="GreigeContractNo"
+    PrecisionRule="true"
+    EntityAttrName="GreigeContractNo"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="GREIGE_CONTRACT_NO"
+    LOVName="LOV_GreigeContractNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InspectionDate"
+    PrecisionRule="true"
+    EntityAttrName="InspectionDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="INSPECTION_DATE"/>
+  <ViewAttribute
+    Name="InspectionDone"
+    PrecisionRule="true"
+    EntityAttrName="InspectionDone"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="INSPECTION_DONE"
+    LOVName="LOV_InspectionDone">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LcStatus"
+    PrecisionRule="true"
+    EntityAttrName="LcStatus"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="LC_STATUS"/>
+  <ViewAttribute
+    Name="Ner"
+    PrecisionRule="true"
+    EntityAttrName="Ner"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="NER"/>
+  <ViewAttribute
+    Name="PoRecDate"
+    PrecisionRule="true"
+    EntityAttrName="PoRecDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="PO_REC_DATE"/>
+  <ViewAttribute
+    Name="PoStatusLookupCode"
+    PrecisionRule="true"
+    EntityAttrName="PoStatusLookupCode"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="PO_STATUS_LOOKUP_CODE"/>
+  <ViewAttribute
+    Name="PoType"
+    PrecisionRule="true"
+    EntityAttrName="PoType"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="PO_TYPE"/>
+  <ViewAttribute
+    Name="ProgramId"
+    PrecisionRule="true"
+    EntityAttrName="ProgramId"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="PROGRAM_ID"/>
+  <ViewAttribute
+    Name="Bags"
+    PrecisionRule="true"
+    EntityAttrName="Bags"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="BAGS"/>
+  <ViewAttribute
+    Name="NormalThread"
+    PrecisionRule="true"
+    EntityAttrName="NormalThread"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="NORMAL_THREAD"/>
+  <ViewAttribute
+    Name="SylkoThread"
+    PrecisionRule="true"
+    EntityAttrName="SylkoThread"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SYLKO_THREAD"/>
+  <ViewAttribute
+    Name="ElasticCordFusing"
+    PrecisionRule="true"
+    EntityAttrName="ElasticCordFusing"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="ELASTIC_CORD_FUSING"/>
+  <ViewAttribute
+    Name="InhouseStickers"
+    PrecisionRule="true"
+    EntityAttrName="InhouseStickers"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="INHOUSE_STICKERS"/>
+  <ViewAttribute
+    Name="Misc"
+    PrecisionRule="true"
+    EntityAttrName="Misc"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="MISC"/>
+  <ViewAttribute
+    Name="ImportedMisc"
+    PrecisionRule="true"
+    EntityAttrName="ImportedMisc"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="IMPORTED_MISC"/>
+  <ViewAttribute
+    Name="Carton"
+    PrecisionRule="true"
+    EntityAttrName="Carton"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CARTON"/>
+  <ViewAttribute
+    Name="Stiffers"
+    PrecisionRule="true"
+    EntityAttrName="Stiffers"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="STIFFERS"/>
+  <ViewAttribute
+    Name="CareLabel"
+    PrecisionRule="true"
+    EntityAttrName="CareLabel"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="CARE_LABEL"/>
+  <ViewAttribute
+    Name="Inserts"
+    PrecisionRule="true"
+    EntityAttrName="Inserts"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="INSERTS"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="SalesContractNo"
+    PrecisionRule="true"
+    EntityAttrName="SalesContractNo"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SALES_CONTRACT_NO"
+    LOVName="LOV_SalesContractNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipMode"
+    PrecisionRule="true"
+    EntityAttrName="ShipMode"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SHIP_MODE"/>
+  <ViewAttribute
+    Name="ShipTerm"
+    PrecisionRule="true"
+    EntityAttrName="ShipTerm"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SHIP_TERM"
+    LOVName="LOV_ShipTerm">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipmentDate"
+    PrecisionRule="true"
+    EntityAttrName="ShipmentDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SHIPMENT_DATE"/>
+  <ViewAttribute
+    Name="SpHeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SpHeaderId"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="SP_HEADER_ID"/>
+  <ViewAttribute
+    Name="StitchInputDate"
+    PrecisionRule="true"
+    EntityAttrName="StitchInputDate"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="STITCH_INPUT_DATE"/>
+  <ViewAttribute
+    Name="Value"
+    PrecisionRule="true"
+    EntityAttrName="Value"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="VALUE"/>
+  <ViewAttribute
+    Name="VersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="VersionNumber"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="VERSION_NUMBER"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="ViewerNote"
+    PrecisionRule="true"
+    EntityAttrName="ViewerNote"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="VIEWER_NOTE"/>
+  <ViewAttribute
+    Name="ThirdPartyAudit"
+    PrecisionRule="true"
+    EntityAttrName="ThirdPartyAudit"
+    EntityUsage="EO_SalesPlanningHeader"
+    AliasName="THIRD_PARTY_AUDIT"/>
+  <ViewAttribute
+    Name="Article"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ARTICLE"
+    Expression="ARTICLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgramName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROGRAM_NAME"
+    Expression="PROGRAM_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_ProgramName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgramManager"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROGRAM_MANAGER"
+    Expression="PROGRAM_MANAGER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Customer"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CUST_ACCT_ID"
+    Expression="CUST_ACCT_ID"
+    SQLType="NUMERIC"
+    LOVName="LOV_CustAcctId">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgramPhase"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROGRAM_PHASE"
+    Expression="PROGRAM_PHASE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Potypemeaning"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="POTYPEMEANING"
+    Expression="POTYPEMEANING"
+    SQLType="VARCHAR"
+    LOVName="LOV_Potypemeaning">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipModeL"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIP_MODE_L"
+    Expression="SHIP_MODE_L"
+    SQLType="VARCHAR"
+    LOVName="LOV_ShipModeL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Lastupdatedbyuser"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LASTUPDATEDBYUSER"
+    Expression="LASTUPDATEDBYUSER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Createdbyuser"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CREATEDBYUSER"
+    Expression="CREATEDBYUSER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PoStatus"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PO_STATUS"
+    Expression="PO_STATUS"
+    SQLType="VARCHAR"
+    LOVName="LOV_PoStatus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Delivery"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DELIVERY"
+    Expression="DELIVERY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MoNo"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MO_NO"
+    Expression="MO_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="VO_SalesPlanningHeaderCriteria"
+    ViewObjectName="model.VO.VO_SalesPlanningHeader"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow1"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustPoNo"
+        ViewAttribute="CustPoNo"
+        Operator="="
+        Conjunction="AND"
+        Value=":Cust_PO_NO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DyeingWoNo"
+        ViewAttribute="DyeingWoNo"
+        Operator="="
+        Conjunction="AND"
+        Value=":Dyeing_WO_NO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="GreigeContractNo"
+        ViewAttribute="GreigeContractNo"
+        Operator="="
+        Conjunction="AND"
+        Value=":Greige_Contract_NO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SalesContractNo"
+        ViewAttribute="SalesContractNo"
+        Operator="="
+        Conjunction="AND"
+        Value=":Sales_Contract_NO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProgramName"
+        ViewAttribute="ProgramName"
+        Operator="="
+        Conjunction="AND"
+        Value=":Program_Name"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustAcctId"
+        ViewAttribute="Customer"
+        Operator="="
+        Conjunction="AND"
+        Value=":Customer_Id"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PoStatus"
+        ViewAttribute="PoStatus"
+        Operator="="
+        Conjunction="AND"
+        Value=":PO_Status"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="VO_SalesPlanningLines1"
+    ViewLink="model.VL.VL_HeaderLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VO_SalesPlanningLines"
+    ViewLink="model.VL.VL_HeadLine"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VO_SalesPlanningLines2"
+    ViewLink="model.VL.VL_LinesHeaderMgt"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="AssignProgramsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_OldManager1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_OldManager1Iterator"/>
+    <iterator Binds="VO_NewManager1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_NewManager1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="VO_OldManager1Iterator" StaticList="false"
+          Uses="LOV_UserName" id="UserName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_OldManager1Iterator" id="ProgramManager">
+      <AttrNames>
+        <Item Value="ProgramManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_NewManager1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_NewManager1Iterator" StaticList="false"
+          Uses="LOV_UserName" id="UserName1" DTSupportsMRU="false"/>
+    <methodAction id="updateRecords"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="updateRecords"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="ids" NDType="java.lang.String[]"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
